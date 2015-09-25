@@ -26,6 +26,7 @@ $(document).ready(function() {
             function(response) {
                 students.add(response);
                 console.log(students);
+                $searchForm.hide('slow');
             },
             'json'
         )
