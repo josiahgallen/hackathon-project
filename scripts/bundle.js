@@ -12695,7 +12695,7 @@ $(document).ready(function () {
 
     var Router = Backbone.Router.extend({
         routes: {
-            'profile/:id': 'showProfile'
+            'students/:id': 'showProfile'
 
         },
 
@@ -12704,6 +12704,7 @@ $(document).ready(function () {
             $profile.html(viewProfile.$el);
             $studentList.hide();
             $profile.show();
+            $searchForm.hide();
         }
 
     });
@@ -12750,7 +12751,7 @@ module.exports = Backbone.Model.extend({
 		end_date: '',
 		course_name: ''
 	},
-	urlRoot: 'http://iron-alum.herokuapp.com',
+	urlRoot: 'http://iron-alum.herokuapp.com/students',
 	idAttribute: 'id'
 });
 
@@ -12800,8 +12801,9 @@ module.exports = Backbone.View.extend({
 		_.bindAll(this, 'render');
 		console.log(options);
 		this.model = new StudentModel({ id: options.id });
+		this.model.on('sync', this.render);
 		this.model.fetch();
-		this.render();
+		// this.render();
 	},
 	render: function render() {
 		var profileTemplate = _.template($('#profile-view').html());

@@ -13,8 +13,9 @@ module.exports = Backbone.View.extend({
 		)
 		console.log(options);
 		this.model = new StudentModel({id: options.id});
+		this.model.on('sync',this.render);
 		this.model.fetch();
-		this.render();
+		// this.render();
 	},
 	render: function() {
 		var profileTemplate = _.template($('#profile-view').html());
