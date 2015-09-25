@@ -12740,20 +12740,47 @@ module.exports = Backbone.Model.extend({
 var $ = require('jquery');
 var Backbone = require('backbone');
 var _ = require('backbone/node_modules/underscore');
+var profileView = require('./profileView');
 
 module.exports = Backbone.View.extend({
 	tagName: 'div',
 	initialize: function initialize() {
-		_.bindAll(this, 'render');
+		_.bindAll(this, 'render', 'showProfile');
 		this.model.on('change', this.render);
 		this.render();
 	},
 	render: function render() {
-		console.log('rendeerrrrsssss');
 		var listTemplate = _.template($('#student-row').html());
 		this.$el.html(listTemplate(this.model.toJSON()));
+		//this.$el.find('button').on('click', this.showProfile);
 	}
+	// ,
+	// showProfile: function() {
+	// 	$('#student-list').hide('slow');
+	// 	console.log(this.model);
+	// 	var profile = new profileView({model: this.model});
+	// 	$('#profile-page').append(profile.$el);
+	// 	console.log('profile page');
+	// }
 
+});
+
+},{"./profileView":8,"backbone":1,"backbone/node_modules/underscore":2,"jquery":3}],8:[function(require,module,exports){
+'use strict';
+var $ = require('jquery');
+var Backbone = require('backbone');
+var _ = require('backbone/node_modules/underscore');
+
+module.exports = Backbone.View.extend({
+	tag: 'div',
+	initialize: function initialize() {
+		_.bindAll(this, 'render');
+		this.render();
+	},
+	render: function render() {
+		var profileTemplate = _.template($('#profile-view').html());
+		this.$el.html(profileTemplate(this.model.toJSON()));
+	}
 });
 
 },{"backbone":1,"backbone/node_modules/underscore":2,"jquery":3}]},{},[5])
