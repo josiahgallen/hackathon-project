@@ -4,7 +4,7 @@ var Backbone = require('backbone');
 
 module.exports = Backbone.Model.extend({
 	defaults: {
-		_id: null,
+		id: null,
 		f_name: '',
 		l_name: '',
 		email: '',
@@ -20,5 +20,5 @@ module.exports = Backbone.Model.extend({
 		course_name: ''
 	},
 	urlRoot: 'http://tiyfe.herokuapp.com/collections/josiah-hackathontest',
-	idAttribute: '_id'
+	idAttribute: 'id'
 });
