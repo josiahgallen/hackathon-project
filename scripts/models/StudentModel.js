@@ -19,6 +19,6 @@ module.exports = Backbone.Model.extend({
 		end_date: '',
 		course_name: ''
 	},
-	urlRoot: '',
+	urlRoot: 'http://tiyfe.herokuapp.com/collections/josiah-hackathontest',
 	idAttribute: '_id'
 });

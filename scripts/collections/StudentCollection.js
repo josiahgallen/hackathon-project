@@ -5,5 +5,5 @@ var StudentModel = require('../models/StudentModel.js');
 
 module.exports = Backbone.Collection.extend({
 	model: StudentModel,
-	url: ''
+	url: 'http://tiyfe.herokuapp.com/collections/josiah-hackathontest'
 })
