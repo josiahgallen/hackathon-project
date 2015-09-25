@@ -22,7 +22,7 @@ $(document).ready(function() {
 
     var Router = Backbone.Router.extend({
         routes:{
-            'profile/:id' : 'showProfile'
+            'students/:id' : 'showProfile'
 
         },
 
@@ -31,6 +31,7 @@ $(document).ready(function() {
             $profile.html(viewProfile.$el);
             $studentList.hide();
             $profile.show();
+            $searchForm.hide();
         }
 
     })
