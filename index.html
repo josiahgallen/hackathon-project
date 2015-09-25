@@ -2,8 +2,11 @@
 <html>
 <head>
 	<title>Iron Alum</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
-	<link rel="stylesheet" type="text/css" href="/styles/main.sass.css">
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="/node_modules/materialize-css/css/materialize.min.css"  media="screen,projection"/>
+	<link rel="stylesheet" type="text/css" href="/styles/main.sass.css"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
 
@@ -35,6 +38,7 @@
 
 
 <script type="text/javascript" src="scripts/bundle.js"></script>
+
 <!-- List template -->
 <script type="text/template" id="student-row">
 		<%= f_name %> <%= l_name %></br>
@@ -53,5 +57,6 @@
 		<%= employed %></br>
 		<!-- <%= where %></br>-->
 </script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 </html>
