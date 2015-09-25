@@ -12686,7 +12686,6 @@ $(document).ready(function () {
 
     var url = 'http://iron-alum.herokuapp.com'; //url will change based server setup
     var studentTemplate = _.template($('#student-row').html());
-
     var students = new StudentCollection();
 
     $searchForm.submit(function (e) {
