@@ -27,12 +27,10 @@ $(document).ready(function() {
         },
 
         showProfile: function(id){
-            var model = students.get(id)
-            var viewProfile = new profileView({model: model});
+            var viewProfile = new profileView({id: id});
             $profile.html(viewProfile.$el);
             $studentList.hide();
             $profile.show();
-
         }
 
     })

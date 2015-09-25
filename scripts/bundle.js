@@ -12667,7 +12667,7 @@ var StudentModel = require('../models/StudentModel.js');
 
 module.exports = Backbone.Collection.extend({
 	model: StudentModel,
-	url: 'http://tiyfe.herokuapp.com/collections/josiah-hackathontest'
+	url: 'http://iron-alum.herokuapp.com'
 });
 
 },{"../models/StudentModel.js":6,"backbone":1}],5:[function(require,module,exports){
@@ -12700,8 +12700,7 @@ $(document).ready(function () {
         },
 
         showProfile: function showProfile(id) {
-            var model = students.get(id);
-            var viewProfile = new profileView({ model: model });
+            var viewProfile = new profileView({ id: id });
             $profile.html(viewProfile.$el);
             $studentList.hide();
             $profile.show();
@@ -12751,7 +12750,7 @@ module.exports = Backbone.Model.extend({
 		end_date: '',
 		course_name: ''
 	},
-	urlRoot: 'http://tiyfe.herokuapp.com/collections/josiah-hackathontest',
+	urlRoot: 'http://iron-alum.herokuapp.com',
 	idAttribute: 'id'
 });
 
@@ -12793,11 +12792,15 @@ module.exports = Backbone.View.extend({
 var $ = require('jquery');
 var Backbone = require('backbone');
 var _ = require('backbone/node_modules/underscore');
+var StudentModel = require('../models/StudentModel.js');
 
 module.exports = Backbone.View.extend({
 	tag: 'div',
-	initialize: function initialize() {
+	initialize: function initialize(options) {
 		_.bindAll(this, 'render');
+		console.log(options);
+		this.model = new StudentModel({ id: options.id });
+		this.model.fetch();
 		this.render();
 	},
 	render: function render() {
@@ -12806,7 +12809,7 @@ module.exports = Backbone.View.extend({
 	}
 });
 
-},{"backbone":1,"backbone/node_modules/underscore":2,"jquery":3}]},{},[5])
+},{"../models/StudentModel.js":6,"backbone":1,"backbone/node_modules/underscore":2,"jquery":3}]},{},[5])
 
 
 //# sourceMappingURL=bundle.js.map
