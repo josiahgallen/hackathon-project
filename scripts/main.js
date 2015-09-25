@@ -4,17 +4,19 @@ var $ = require('jquery');
 var _ = require('backbone/node_modules/underscore');
 var StudentModel = require('./models/StudentModel.js');
 var StudentCollection = require('./collections/StudentCollection.js');
+var listItemView = require('./views/listItemView.js')
 
 $(document).ready(function() {
 
     var $searchForm = $('#searchForm');
     var $locationSearch = $('#locationSearch');
     var $courseSearch = $('#courseSearch');
+    var $studentList = $('#student-list');
 
     var url = 'http://iron-alum.herokuapp.com'; //url will change based server setup
-    var studentTemplate = _.template($('#student-row').html());
+   
 
-    var students = new StudentCollection();
+    var students = new StudentCollection;
 
     $searchForm.submit(function(e) {
         e.preventDefault();
@@ -30,6 +32,12 @@ $(document).ready(function() {
             },
             'json'
         )
+    })
+
+    students.on('add', function(newProfile){
+        var listView = new listItemView({model: newProfile})
+        $studentList.append(listView.$el);
+
     })
 
 
