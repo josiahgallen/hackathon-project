@@ -31,11 +31,24 @@
 	<div id="student-list"></div>
 
 
-
 <script type="text/javascript" src="scripts/bundle.js"></script>
+<!-- List template -->
 <script type="text/template" id="student-row">
-		<%= f_name %><%= l_name %><%= city %>
+		<%= f_name %> <%= l_name %></br>
+		<%= city %>
 		<button>View Profile</button>
+</script>
+<!-- Profile template -->
+<script type="text/template" id="profile-view">
+		<%= f_name %> <%= l_name %></br>
+		<%= email %></br>
+		<%= city %> <%= state %></br>
+		<%= course_name %> <%= start_date %> <%= end_date %></br>
+		<%= bio %></br>
+		<%= linked_in %></br>
+		<%= github %></br>
+		<%= employed %></br>
+		// <%= where %></br>
 </script>
 </body>
 </html>
