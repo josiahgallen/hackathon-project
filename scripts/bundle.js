@@ -12674,10 +12674,12 @@ module.exports = Backbone.Collection.extend({
 'use strict';
 
 var $ = require('jquery');
+var Backbone = require('backbone');
 var _ = require('backbone/node_modules/underscore');
 var StudentModel = require('./models/StudentModel.js');
 var StudentCollection = require('./collections/StudentCollection.js');
 var listItemView = require('./views/listItemView.js');
+var profileView = require('./views/profileView.js');
 
 $(document).ready(function () {
 
@@ -12685,18 +12687,34 @@ $(document).ready(function () {
     var $locationSearch = $('#locationSearch');
     var $courseSearch = $('#courseSearch');
     var $studentList = $('#student-list');
+    var $profile = $('#profile-page');
 
-    var url = 'http://iron-alum.herokuapp.com'; //url will change based server setup
+    var url = 'http://iron-alum.herokuapp.com';
 
     var students = new StudentCollection();
+
+    var Router = Backbone.Router.extend({
+        routes: {
+            'profile/:id': 'showProfile'
+
+        },
+
+        showProfile: function showProfile(id) {
+            var model = students.get(id);
+            var viewProfile = new profileView({ model: model });
+            $profile.html(viewProfile.$el);
+            $studentList.hide();
+            $profile.show();
+        }
+
+    });
 
     $searchForm.submit(function (e) {
         e.preventDefault();
         var location = $locationSearch.val();
         var course = $courseSearch.val();
         console.log(url + '/' + location + '/' + course);
-        $.get('http://tiyfe.herokuapp.com/collections/josiah-hackathontest', //pizza-server test
-        function (response) {
+        $.get(url + '/' + location + '/' + course, function (response) {
             students.add(response);
             console.log(students);
             $searchForm.hide('slow');
@@ -12707,16 +12725,18 @@ $(document).ready(function () {
         var listView = new listItemView({ model: newProfile });
         $studentList.append(listView.$el);
     });
+    var alum = new Router();
+    Backbone.history.start();
 });
 
-},{"./collections/StudentCollection.js":4,"./models/StudentModel.js":6,"./views/listItemView.js":7,"backbone/node_modules/underscore":2,"jquery":3}],6:[function(require,module,exports){
+},{"./collections/StudentCollection.js":4,"./models/StudentModel.js":6,"./views/listItemView.js":7,"./views/profileView.js":8,"backbone":1,"backbone/node_modules/underscore":2,"jquery":3}],6:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
 
 module.exports = Backbone.Model.extend({
 	defaults: {
-		_id: null,
+		id: null,
 		f_name: '',
 		l_name: '',
 		email: '',
@@ -12732,7 +12752,7 @@ module.exports = Backbone.Model.extend({
 		course_name: ''
 	},
 	urlRoot: 'http://tiyfe.herokuapp.com/collections/josiah-hackathontest',
-	idAttribute: '_id'
+	idAttribute: 'id'
 });
 
 },{"backbone":1}],7:[function(require,module,exports){
@@ -12745,7 +12765,10 @@ var profileView = require('./profileView');
 module.exports = Backbone.View.extend({
 	tagName: 'div',
 	initialize: function initialize() {
-		_.bindAll(this, 'render', 'showProfile');
+		_.bindAll(this, 'render'
+		// 'showProfile'
+
+		);
 		this.model.on('change', this.render);
 		this.render();
 	},

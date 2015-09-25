@@ -13,13 +13,14 @@
 				<option value="" disabled selected>Select Location:</option>
 				<option value="Austin">Austin</option>
 				<option value="Dallas">Dallas</option>
+				<option value="Houston">Houston</option>
 			</select>
 		</div>
 		<div>
 			<select id="courseSearch">
 				<option value="" disabled selected>Select Class:</option>
-				<option value="backend">Back End Engineering</option>
-				<option value="FEE">Front End Engineering</option>
+				<option value="Backend">Back End Engineering</option>
+				<option value="Frontend">Front End Engineering</option>
 				<option value="Design">Design</option>
 			</select>
 		</div>
@@ -37,7 +38,7 @@
 <script type="text/template" id="student-row">
 		<%= f_name %> <%= l_name %></br>
 		<%= city %>
-		<button>View Profile</button>
+		<a href="#profile/<%= id %>">View Profile</a>
 </script>
 <!-- Profile template -->
 <script type="text/template" id="profile-view">
