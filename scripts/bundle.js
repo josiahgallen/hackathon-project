@@ -12677,15 +12677,16 @@ var $ = require('jquery');
 var _ = require('backbone/node_modules/underscore');
 var StudentModel = require('./models/StudentModel.js');
 var StudentCollection = require('./collections/StudentCollection.js');
+var listItemView = require('./views/listItemView.js');
 
 $(document).ready(function () {
 
     var $searchForm = $('#searchForm');
     var $locationSearch = $('#locationSearch');
     var $courseSearch = $('#courseSearch');
+    var $studentList = $('#student-list');
 
     var url = 'http://iron-alum.herokuapp.com'; //url will change based server setup
-    var studentTemplate = _.template($('#student-row').html());
 
     var students = new StudentCollection();
 
@@ -12701,9 +12702,14 @@ $(document).ready(function () {
             $searchForm.hide('slow');
         }, 'json');
     });
+
+    students.on('add', function (newProfile) {
+        var listView = new listItemView({ model: newProfile });
+        $studentList.append(listView.$el);
+    });
 });
 
-},{"./collections/StudentCollection.js":4,"./models/StudentModel.js":6,"backbone/node_modules/underscore":2,"jquery":3}],6:[function(require,module,exports){
+},{"./collections/StudentCollection.js":4,"./models/StudentModel.js":6,"./views/listItemView.js":7,"backbone/node_modules/underscore":2,"jquery":3}],6:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -12729,7 +12735,28 @@ module.exports = Backbone.Model.extend({
 	idAttribute: '_id'
 });
 
-},{"backbone":1}]},{},[5])
+},{"backbone":1}],7:[function(require,module,exports){
+'use strict';
+var $ = require('jquery');
+var Backbone = require('backbone');
+var _ = require('backbone/node_modules/underscore');
+
+module.exports = Backbone.View.extend({
+	tagName: 'div',
+	initialize: function initialize() {
+		_.bindAll(this, 'render');
+		this.model.on('change', this.render);
+		this.render();
+	},
+	render: function render() {
+		console.log('rendeerrrrsssss');
+		var listTemplate = _.template($('#student-row').html());
+		this.$el.html(listTemplate(this.model.toJSON()));
+	}
+
+});
+
+},{"backbone":1,"backbone/node_modules/underscore":2,"jquery":3}]},{},[5])
 
 
 //# sourceMappingURL=bundle.js.map
