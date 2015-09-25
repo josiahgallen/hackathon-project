@@ -11,8 +11,8 @@ module.exports = Backbone.View.extend({
 	initialize: function() {
 		_.bindAll(
 			this,
-			'render',
-			'showProfile'
+			'render'
+			// 'showProfile'
 
 		);
 		this.model.on('change', this.render);
