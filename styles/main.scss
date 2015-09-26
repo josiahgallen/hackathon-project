@@ -1,13 +1,64 @@
+
+
+body{
+	background-color:#E3E7E9;
+
+}
+
+
+nav {
+	background-color: #39474E;
+	.brand-logo{
+		left: 15%;
+	}
+
+}
+.heroImg{ 
+   position: relative;
+   height: 26em;
+   background: url("../images/home-hero-new.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   opacity: 0.6;
+
+}
+
+
+h3 { 
+   position: absolute; 
+   top: 20%; 
+   left: 0; 
+   width: 100%; 
+   text-align:center;
+   color: white;
+   text-shadow: 1px 1px 2px black; 
+
+}
+
 form{
+	display:none;
 	select{
-		display:block;
+		// display:block;
 		width: 75%;
 		margin: 1em auto;
 	}
 	.button-wrap{
 		text-align: center;
+		display:none;
 	}
+
 }
 .cityIcon{
 	margin-top:.75em;
+}
+
+footer.page-footer {
+	background-color: #39474E;
+}
+
+// medium
+@media only screen and (min-width: 601px){
+	.row .col.offset-m1 {
+	    margin-left: 10.33333%;
+	}
 }
