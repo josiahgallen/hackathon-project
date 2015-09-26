@@ -54,22 +54,30 @@ $(document).ready(function() {
 
     $createProfile.submit(function(e) {
         e.preventDefault();
+        var where = '1';
+        var employed = false;
+        var cohortInt = parseInt($('#cohortSelect').val());
+        if (cohortInt <= 3) {
+            where = '1'
+        } else if (cohortInt > 3 && cohortInt <= 6) {
+            where = '2'
+        } else {
+            where = '3'
+        }
+        if ($('#employed').val() === 'true') {
+            employed = true;
+        }
         var newProfile = new StudentModel();
         newProfile.save({
-            f_name: '',
-            l_name: '',
-            email: '',
-            bio: '',
-            linked_in: '',
-            github: '',
-            employed: false,
-            where: '',
-            city: '',
-            state: '',
-            start_date: '',
-            end_date: '',
-            course_name: '',
-            cohort_id: ''
+            f_name: $('#f_name').val(),
+            l_name: $('#l_name').val(),
+            email: $('#email').val(),
+            bio: $('#bio').val(),
+            linked_in: $('#linked_in').val(),
+            github: $('#github').val(),
+            employed: employed,
+            cohort_id: $('#cohortSelect').val(),
+            location_id: where
 
         });
         console.log(newProfile);
