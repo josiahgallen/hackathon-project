@@ -12717,8 +12717,18 @@ $(document).ready(function () {
         $.get(url + '/' + location + '/' + course, function (response) {
             students.add(response);
             console.log(students);
+            $searchForm.hide('fast');
+        }, 'json');
+    });
+
+    $('#view-all').click(function (e) {
+        e.preventDefault();
+        $.get(url + '/students', function (response) {
+            students.add(response);
+            console.log(students);
             $searchForm.hide('slow');
         }, 'json');
+        console.log(url + '/students');
     });
 
     students.on('add', function (newProfile) {

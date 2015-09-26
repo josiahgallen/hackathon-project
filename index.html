@@ -1,66 +1,89 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Iron Alum</title>
-	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-	  <!--Import materialize.css-->
-	  <link type="text/css" rel="stylesheet" href="/node_modules/materialize-css/bin/materialize.css"  media="screen,projection"/>
-	<link rel="stylesheet" type="text/css" href="/styles/main.sass.css"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Iron Alum</title>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/node_modules/materialize-css/bin/materialize.css" media="screen,projection" />
+    <link rel="stylesheet" type="text/css" href="/styles/main.sass.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
+
 <body>
+     <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">Logo</a>
+        <ul class="right">
+          <li><a href="students" id="view-all">View All TIY Students</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+    <!-- Landing Page -->
+    <form id="searchForm">
+        <div class="input-field col s12">
+            <select id="locationSearch">
+                <option value="" disabled selected>Select Location:</option>
+                <option value="Austin">Austin</option>
+                <option value="Dallas">Dallas</option>
+                <option value="Houston">Houston</option>
+            </select>
+        </div>
+        <div>
+            <select id="courseSearch">
+                <option value="" disabled selected>Select Class:</option>
+                <option value="Backend">Back End Engineering</option>
+                <option value="Frontend">Front End Engineering</option>
+                <option value="Design">Design</option>
+            </select>
+        </div>
+        <div class="button-wrap">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </form>
+    <!-- End of landing page -->
+    <!-- Student List Page -->
+    <div id="student-list"></div>
+    <div id="profile-page"></div>
+    <script type="text/javascript" src="scripts/bundle.js"></script>
 
-<!-- Landing Page -->
-	<form id="searchForm">
-		<div class="input-field col s12">
-			<select id="locationSearch">
-				<option value="" disabled selected>Select Location:</option>
-				<option value="Austin">Austin</option>
-				<option value="Dallas">Dallas</option>
-				<option value="Houston">Houston</option>
-			</select>
-		</div>
-		<div>
-			<select id="courseSearch">
-				<option value="" disabled selected>Select Class:</option>
-				<option value="Backend">Back End Engineering</option>
-				<option value="Frontend">Front End Engineering</option>
-				<option value="Design">Design</option>
-			</select>
-		</div>
-		<div class="button-wrap">
-			<button class="btn waves-effect waves-light" type="submit" name="action">Search
-			  	<i class="material-icons right">send</i>
-			</button>
-		</div>
-	</form>
-
-<!-- End of landing page -->
-<!-- Student List Page -->
-	<div id="student-list"></div>
-	<div id="profile-page"></div>
-
-
-<script type="text/javascript" src="scripts/bundle.js"></script>
-
-<!-- List template -->
-<script type="text/template" id="student-row">
-		<%= f_name %> <%= l_name %></br>
-		<%= city %>
-		<a href="#students/<%= id %>">View Profile</a>
-</script>
-<!-- Profile template -->
-<script type="text/template" id="profile-view">
-		<%= f_name %> <%= l_name %></br>
-		<%= email %></br>
-		<%= city %> <%= state %></br>
-		<%= course_name %> <%= start_date %> <%= end_date %></br>
-		<%= bio %></br>
-		<%= linked_in %></br>
-		<%= github %></br>
-		<%= employed %></br>
-		<!-- <%= where %></br>-->
-</script>
-<!-- <script type="text/javascript" src="/node_modules/materialize-css/bin/materialize.js"></script> -->
+    <!-- List template -->
+    <script type="text/template" id="student-row">
+        <%= f_name %>
+            <%= l_name %>
+                </br>
+                <%= city %>
+                    <a href="#students/<%= id %>">View Profile</a>
+    </script>
+    <!-- Profile template -->
+    <script type="text/template" id="profile-view">
+        <%= f_name %>
+        <%= l_name %>
+        </br>
+        <%= email %>
+        </br>
+        <%= city %>
+        <%= state %>
+        </br>
+        <%= course_name %>
+        <%= start_date %>
+        <%= end_date %>
+        </br>
+        <%= bio %>
+        </br>
+        <%= linked_in %>
+        </br>
+        <%= github %>
+        </br>
+        <%= employed %>
+        </br>
+        <!-- <%= where %></br>-->
+    </script>
+    
 </body>
+
 </html>
