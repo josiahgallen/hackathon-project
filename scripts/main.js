@@ -24,7 +24,9 @@ $(document).ready(function() {
     var Router = Backbone.Router.extend({
         routes:{
             'students/:id' : 'showProfile',
-            '' : 'goHome'
+            '' : 'goHome',
+            'searchStudents': 'goSearchForm',
+            'addProfile': 'goAdd'
         },
 
         showProfile: function(id){
@@ -37,8 +39,21 @@ $(document).ready(function() {
         goHome: function(e) {
             $profile.hide();
             $searchForm.show();
+        },
+        goSearchForm: function(e) {
+            $('#hpCards').hide('fast');
+            $('select').css('display', 'block');
+            $('#searchButton').css('display', 'block');
+            $('.heroImg').css('height', '10em');
+        },
+        goAdd: function(e) {
+            $('#hpCards').hide('fast');
+            $('#createProfile').show();
+            $('#cohortSelect').css('display', 'block');
+            $('#employed').css('display', 'block');
+            $('.heroImg').css('height', '10em');
+            $('#createPbutton').css('display', 'block');
         }
-
     })
 
     $searchForm.submit(function(e) {
@@ -73,7 +88,7 @@ $(document).ready(function() {
             employed = true;
         }
         var newProfile = new StudentModel();
-        newProfile.save({
+        newProfile.saver({
             f_name: $('#f_name').val(),
             l_name: $('#l_name').val(),
             email: $('#email').val(),
@@ -95,7 +110,9 @@ $(document).ready(function() {
             function(response) {
                 students.add(response);
                 console.log(students);
-                $searchForm.hide('slow');
+                //$searchForm.hide('slow');
+                $('#hpCards').hide('fast');
+                $('.heroImg').css('height', '10em');
             },
             'json'
         )
