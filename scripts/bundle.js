@@ -12757,7 +12757,7 @@ $(document).ready(function () {
             employed = true;
         }
         var newProfile = new StudentModel();
-        newProfile.save({
+        newProfile.saver({
             f_name: $('#f_name').val(),
             l_name: $('#l_name').val(),
             email: $('#email').val(),
