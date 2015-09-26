@@ -1,10 +1,11 @@
-form select {
-  display: block;
-  width: 75%;
-  margin: 1em auto; }
-
-form .button-wrap {
-  text-align: center; }
+form {
+  display: none; }
+  form select {
+    display: block;
+    width: 75%;
+    margin: 1em auto; }
+  form .button-wrap {
+    text-align: center; }
 
 .cityIcon {
   margin-top: .75em; }
