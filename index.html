@@ -46,6 +46,63 @@
         </div>
     </form>
     <!-- End of landing page -->
+   <!--  Start of Profile Creation Page -->
+	<div class="row">
+		<form id="createProfile" class="col s12">
+			<div class="row">
+				<div class="input-field col s12 m6">
+					<i class="material-icons prefix">account_circle</i>
+					<input id="f_name" type="text" class="validate" placeholder="First Name">
+				</div>
+				<div class="input-field col s12 m6">
+					<i class="material-icons prefix">account_circle</i>
+					<input id="l_name" type="text" class="validate" placeholder="Last Name">
+				</div>
+				<div class="input-field col s12">
+					<i class="cityIcon material-icons prefix">room</i>
+					<select id="cohortSelect">
+						<option value="" disabled selected>Select your city and course</option>
+						<option value="1">Austin - Front End</option>
+						<option value="2">Austin - Back End</option>
+						<option value="3">Austin - Design</option>
+						<option value="4">Dallas - Front End</option>
+						<option value="5">Dallas - Back End</option>
+						<option value="6">Dallas - Design</option>
+						<option value="7">Houston - Front End</option>
+						<option value="8">Houston - Back End</option>
+						<option value="9">Houston - Design</option>
+					</select>
+				</div>
+				<div class="input-field col s12 m6">
+					<i class="material-icons prefix">email</i>
+					<input id="email" type="email" class="validate" placeholder="Email">
+				</div>
+				<div class="input-field col s12 m6">
+					<i class="material-icons prefix">label_outline</i>
+					<input id="linked_in" type="text" class="validate" placeholder="Linked In">
+				</div>
+				<div class="input-field col s12 m6">
+					<i class="material-icons prefix">label_outline</i>
+					<input id="github" type="text" class="validate" placeholder="Github">
+				</div>
+				<div class="input-field col s12 m6">
+					<p>
+				      <input type="checkbox" id="test5" />
+				      <label for="test5">Employed</label>
+				    </p>
+				</div>
+				<div class="input-field col s12">
+					<i class="material-icons prefix">perm_identity</i>
+					<textarea id="bio" class="materialize-textarea" placeholder="Bio"></textarea>
+				</div>
+			</div>
+			<div class="button-wrap">
+	            <button class="btn waves-effect waves-light" type="submit" name="action">Create Profile
+	                <i class="material-icons right">send</i>
+	            </button>
+        </div>
+		</form>
+	</div>
     <!-- Student List Page -->
     <div id="student-list"></div>
     <div id="profile-page"></div>
