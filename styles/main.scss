@@ -1,3 +1,19 @@
+body{
+	background-color:#E3E7E9;
+
+}
+
+nav {
+	background-color: #39474E;
+	.brand-logo{
+		left: 15%;
+	}
+
+}
+.row{
+	margin-top: 10%;
+}
+
 form{
 	display:none;
 	select{
@@ -11,4 +27,12 @@ form{
 }
 .cityIcon{
 	margin-top:.75em;
+}
+
+
+// medium
+@media only screen and (min-width: 601px){
+	.row .col.offset-m1 {
+	    margin-left: 10.33333%;
+	}
 }
