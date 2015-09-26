@@ -12688,6 +12688,7 @@ $(document).ready(function () {
     var $courseSearch = $('#courseSearch');
     var $studentList = $('#student-list');
     var $profile = $('#profile-page');
+    var $createProfile = $('#createProfile');
 
     var url = 'http://iron-alum.herokuapp.com';
 
@@ -12696,7 +12697,6 @@ $(document).ready(function () {
     var Router = Backbone.Router.extend({
         routes: {
             'students/:id': 'showProfile'
-
         },
 
         showProfile: function showProfile(id) {
@@ -12719,6 +12719,29 @@ $(document).ready(function () {
             console.log(students);
             $searchForm.hide('fast');
         }, 'json');
+    });
+
+    $createProfile.submit(function (e) {
+        e.preventDefault();
+        var newProfile = new StudentModel();
+        newProfile.save({
+            f_name: '',
+            l_name: '',
+            email: '',
+            bio: '',
+            linked_in: '',
+            github: '',
+            employed: false,
+            where: '',
+            city: '',
+            state: '',
+            start_date: '',
+            end_date: '',
+            course_name: '',
+            cohort_id: ''
+
+        });
+        console.log(newProfile);
     });
 
     $('#view-all').click(function (e) {
@@ -12754,12 +12777,12 @@ module.exports = Backbone.Model.extend({
 		linked_in: '',
 		github: '',
 		employed: false,
-		where: '',
+		place_employed: null,
 		city: '',
 		state: '',
-		start_date: '',
-		end_date: '',
-		course_name: ''
+		course_name: '',
+		cohort_id: ''
+
 	},
 	urlRoot: 'http://iron-alum.herokuapp.com/students',
 	idAttribute: 'id'

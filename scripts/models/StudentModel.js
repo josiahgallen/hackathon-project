@@ -12,12 +12,13 @@ module.exports = Backbone.Model.extend({
 		linked_in: '',
 		github: '',
 		employed: false,
-		where: '',
+		place_employed: null,
 		city: '',
 		state: '',
-		start_date: '',
-		end_date: '',
-		course_name: ''
+		course_name: '',
+		cohort_id: ''
+
+
 	},
 	urlRoot: 'http://iron-alum.herokuapp.com/students',
 	idAttribute: 'id'
