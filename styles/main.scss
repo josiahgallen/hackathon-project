@@ -1,7 +1,10 @@
+
+
 body{
 	background-color:#E3E7E9;
 
 }
+
 
 nav {
 	background-color: #39474E;
@@ -11,14 +14,15 @@ nav {
 
 }
 .heroImg{ 
-   position: relative; 
-   width: 100%;
+   position: relative;
+   height: 26em;
+   background: url("../images/home-hero-new.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   opacity: 0.6;
 
 }
 
-.responsive-img{
-	 opacity: 0.4; 
-}
 
 h3 { 
    position: absolute; 
@@ -48,6 +52,9 @@ form{
 	margin-top:.75em;
 }
 
+footer.page-footer {
+	background-color: #39474E;
+}
 
 // medium
 @media only screen and (min-width: 601px){
