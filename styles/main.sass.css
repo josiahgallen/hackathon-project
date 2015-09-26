@@ -27,7 +27,8 @@ form {
   display: none; }
   form select {
     width: 75%;
-    margin: 1em auto; }
+    margin: 1em auto;
+    display: none; }
   form .button-wrap {
     text-align: center;
     display: none; }

@@ -12697,7 +12697,9 @@ $(document).ready(function () {
     var Router = Backbone.Router.extend({
         routes: {
             'students/:id': 'showProfile',
-            '': 'goHome'
+            '': 'goHome',
+            'searchStudents': 'goSearchForm',
+            'addProfile': 'goAdd'
         },
 
         showProfile: function showProfile(id) {
@@ -12710,8 +12712,21 @@ $(document).ready(function () {
         goHome: function goHome(e) {
             $profile.hide();
             $searchForm.show();
+        },
+        goSearchForm: function goSearchForm(e) {
+            $('#hpCards').hide('fast');
+            $('select').css('display', 'block');
+            $('#searchButton').css('display', 'block');
+            $('.heroImg').css('height', '10em');
+        },
+        goAdd: function goAdd(e) {
+            $('#hpCards').hide('fast');
+            $('#createProfile').show();
+            $('#cohortSelect').css('display', 'block');
+            $('#employed').css('display', 'block');
+            $('.heroImg').css('height', '10em');
+            $('#createPbutton').css('display', 'block');
         }
-
     });
 
     $searchForm.submit(function (e) {
@@ -12762,7 +12777,9 @@ $(document).ready(function () {
         $.get(url + '/students', function (response) {
             students.add(response);
             console.log(students);
-            $searchForm.hide('slow');
+            //$searchForm.hide('slow');
+            $('#hpCards').hide('fast');
+            $('.heroImg').css('height', '10em');
         }, 'json');
         console.log(url + '/students');
     });
@@ -12818,17 +12835,8 @@ module.exports = Backbone.View.extend({
 	render: function render() {
 		var listTemplate = _.template($('#student-row').html());
 		this.$el.html(listTemplate(this.model.toJSON()));
-		//this.$el.find('button').on('click', this.showProfile);
+		$('#searchForm').hide();
 	}
-	// ,
-	// showProfile: function() {
-	// 	$('#student-list').hide('slow');
-	// 	console.log(this.model);
-	// 	var profile = new profileView({model: this.model});
-	// 	$('#profile-page').append(profile.$el);
-	// 	console.log('profile page');
-	// }
-
 });
 
 },{"./profileView":8,"backbone":1,"backbone/node_modules/underscore":2,"jquery":3}],8:[function(require,module,exports){

@@ -22,15 +22,6 @@ module.exports = Backbone.View.extend({
 	render: function() {
 		var listTemplate = _.template($('#student-row').html());
 		this.$el.html(listTemplate(this.model.toJSON()));
-		//this.$el.find('button').on('click', this.showProfile);
+		$('#searchForm').hide();
 	}
-	// ,
-	// showProfile: function() {
-	// 	$('#student-list').hide('slow');
-	// 	console.log(this.model);
-	// 	var profile = new profileView({model: this.model});
-	// 	$('#profile-page').append(profile.$el);
-	// 	console.log('profile page');
-	// }
-
 });
