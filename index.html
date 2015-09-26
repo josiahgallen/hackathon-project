@@ -26,7 +26,7 @@
  		    <!-- <img class="responsive-img" src="images/home-hero-new.jpg"> -->
  		    <h3> Connecting Employers to Alumni </h3>
  	</div>
- 	<div class="row">
+ 	<div class="row" id="hpCards">
         <div class="col s12 m6">
           <div class="z-depth-5 card blue-grey darken-1">
             <div class="card-content white-text">
@@ -34,7 +34,7 @@
               <p>Our proven career support program and relationships with companies mean our graduates find amazing work. </p>
             </div>
             <div class="card-action">
-              <a href="#">Find your next employee ></a>
+              <a href="#searchStudents">Find your next employee ></a>
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@
               <p>Whether you’re looking to join a startup, work at an agency, or get just stay in touch.</p>
             </div>
             <div class="card-action">
-              <a href="#">Create a profile ></a>
+              <a href="#addProfile">Create a profile ></a>
             </div>
           </div>
         </div>
@@ -69,7 +69,7 @@
                 <option value="Design">Design</option>
             </select>
         </div>
-        <div class="button-wrap">
+        <div class="button-wrap" id="searchButton">
             <button class="btn waves-effect waves-light" type="submit" name="action">Search
                 <i class="material-icons right">send</i>
             </button>
@@ -127,7 +127,7 @@
 					<textarea id="bio" class="materialize-textarea" placeholder="Bio"></textarea>
 				</div>
 			</div>
-			<div class="button-wrap">
+			<div class="button-wrap" id="createPbutton">
 	            <button class="btn waves-effect waves-light" type="submit" name="action">Create Profile
 	                <i class="material-icons right">send</i>
 	            </button>
