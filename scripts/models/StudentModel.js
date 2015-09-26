@@ -17,6 +17,6 @@ module.exports = Backbone.Model.extend({
 
 
 	},
-	urlRoot: 'http://iron-alum.herokuapp.com',
+	urlRoot: 'http://iron-alum.herokuapp.com/students',
 	idAttribute: 'id'
 });
