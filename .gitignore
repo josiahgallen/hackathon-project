@@ -18,3 +18,5 @@
 /node_modules/vinyl-source-stream
 /node_modules/watchify
 .DS_Store
+/scripts/bundle.js
+/scripts/bundle.js.map
