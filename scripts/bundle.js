@@ -12710,6 +12710,7 @@ $(document).ready(function () {
             $searchForm.hide();
             $('#hpCards').hide();
             $('.heroImg').css('height', '10em');
+            $('#view-all').hide();
         },
         goHome: function goHome(e) {
             $profile.hide();
@@ -12782,7 +12783,9 @@ $(document).ready(function () {
             students.add(res);
         });
 
-        console.log(newProfile);
+        $('#createProfile').hide();
+        $('#cohortSelect').css('display', 'none');
+        $('#employed').css('display', 'none');
     });
 
     $('#view-all').click(function (e) {
@@ -12793,6 +12796,9 @@ $(document).ready(function () {
             //$searchForm.hide('slow');
             $('#hpCards').hide('fast');
             $('.heroImg').css('height', '10em');
+            $('#createProfile').hide();
+            $('#cohortSelect').css('display', 'none');
+            $('#employed').css('display', 'none');
         }, 'json');
         console.log(url + '/students');
     });
