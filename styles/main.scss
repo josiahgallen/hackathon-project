@@ -8,13 +8,15 @@ body{
 
 nav {
 	background-color: #39474E;
-	height: 2em;
+	height: 5em;
 	width:100%;
 	.brand-logo{
-		left: 15%;
+		margin-left:1em;
 		background: url("../images/iron-yard-logo-sm.png");
 		background-repeat: no-repeat;
-		overflow:hidden;
+		background-size: contain;
+		height: 100%;
+		width: 100%;
 	}
 
 }
