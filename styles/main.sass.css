@@ -11,6 +11,12 @@ nav {
     overflow: hidden;
     height: calc(100%);
     left: 8%; }
+  nav .logoTxt {
+    position: absolute;
+    left: 17%;
+    font-family: 'Alex Brush', cursive;
+    font-size: 3em;
+    top: 5px; }
 
 .heroImg {
   position: relative;
@@ -52,6 +58,12 @@ form {
   height: 2em;
   margin-top: 1em; }
 
+#listImg {
+  height: 2em;
+  float: right;
+  position: relative;
+  bottom: 1em; }
+
 .about {
   text-align: center; }
 
@@ -63,4 +75,6 @@ footer.page-footer {
 
 @media only screen and (min-width: 601px) {
   .row .col.offset-m1 {
-    margin-left: 10.33333%; } }
+    margin-left: 10.33333%; }
+  nav .logoTxt {
+    left: 15%; } }
