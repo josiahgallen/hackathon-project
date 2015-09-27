@@ -2,9 +2,14 @@ body {
   background-color: #E3E7E9; }
 
 nav {
-  background-color: #39474E; }
+  background-color: #39474E;
+  height: 2em;
+  width: 100%; }
   nav .brand-logo {
-    left: 15%; }
+    left: 15%;
+    background: url("../images/iron-yard-logo-sm.png");
+    background-repeat: no-repeat;
+    overflow: hidden; }
 
 .heroImg {
   position: relative;
@@ -23,6 +28,9 @@ h3 {
   color: white;
   text-shadow: 1px 1px 2px black; }
 
+.card-panel {
+  margin: 1em; }
+
 form {
   display: none; }
   form select {
@@ -32,6 +40,12 @@ form {
   form .button-wrap {
     text-align: center;
     display: none; }
+
+.row .col {
+  padding: 1em; }
+  .row .col .s12 {
+    width: 95%;
+    margin-left: 10px; }
 
 .cityIcon {
   margin-top: .75em; }
