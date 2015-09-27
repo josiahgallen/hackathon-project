@@ -10,14 +10,15 @@ nav {
 	background-color: #39474E;
 	height: 5em;
 	width:100%;
-	.brand-logo{
-		margin-left:1em;
-		background: url("../images/iron-yard-logo-sm.png");
-		background-repeat: no-repeat;
-		background-size: contain;
-		height: 100%;
-		width: 100%;
+	.logoWrap{
+		width:100%;
 	}
+	.brand-logo{
+		    overflow: hidden;
+    		height: calc(100%);
+    		left: 8%;
+	}
+	
 
 }
 .heroImg{ 
@@ -41,8 +42,8 @@ h3 {
    text-shadow: 1px 1px 2px black; 
 
 }
-.card-panel{
-	margin: 1em;
+.card-content{
+	min-height: 150px;
 }
 form{
 	display:none;
