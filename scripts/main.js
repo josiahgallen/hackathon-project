@@ -55,6 +55,8 @@ $(document).ready(function() {
             $('#employed').css('display', 'block');
             $('.heroImg').css('height', '10em');
             $('#createPbutton').css('display', 'block');
+            $('.heroTxt').text('Create Your Profile');
+            
         }
     })
 
