@@ -12745,6 +12745,7 @@ $(document).ready(function () {
 
     $searchForm.submit(function (e) {
         e.preventDefault();
+        $('.heroImg').css('height', '17em');
         var location = $locationSearch.val();
         var course = $courseSearch.val();
         console.log(url + '/' + location + '/' + course);

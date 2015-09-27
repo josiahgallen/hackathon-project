@@ -8,13 +8,14 @@
     <link type="text/css" rel="stylesheet" href="/node_modules/materialize-css/bin/materialize.css" media="screen,projection" />
     <link rel="stylesheet" type="text/css" href="/styles/main.sass.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='https://fonts.googleapis.com/css?family=Alex+Brush' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
      <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-       	 <a href=""  id="home"><img class="brand-logo" src="../images/iron-yard-logo-sm.png"></a>
+       	 <a href=""  id="home"><img class="brand-logo" src="../images/iron-yard-logo-sm.png"><span class="logoTxt">Alumni</span></a>
         <ul class="right">
           <li><a href="students" id="view-all">View All TIY Students</a></li>
         </ul>
@@ -172,6 +173,9 @@
         <%= f_name %>
             <%= l_name %>
                 </br>
+                <span>
+                    <img class="circle responsive-img" id="listImg" src="images/empty_profile.png">
+                    </span>
                     <a href="#students/<%= id %>">View Profile</a>
                     </div>
     </script>
