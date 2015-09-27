@@ -20,14 +20,14 @@ nav {
   background-size: cover;
   opacity: 0.6; }
 
-h3 {
+.heroTxt {
   position: absolute;
   top: 20%;
   left: 0;
   width: 100%;
   text-align: center;
   color: white;
-  text-shadow: 1px 1px 2px black; }
+  text-shadow: 2px 1px 2px black; }
 
 .card-content {
   min-height: 150px; }
@@ -47,6 +47,13 @@ form {
   .row .col .s12 {
     width: 95%;
     margin-left: 10px; }
+
+#profileImg {
+  height: 2em;
+  margin-top: 1em; }
+
+.about {
+  text-align: center; }
 
 .cityIcon {
   margin-top: .75em; }
