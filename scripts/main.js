@@ -27,7 +27,8 @@ $(document).ready(function() {
             '' : 'goHome',
             'searchStudents': 'goSearchForm',
             'addProfile': 'goAdd',
-            'searchStudents/:location/:course': 'searchResults'
+            'searchStudents/:location/:course': 'searchResults',
+            'viewAllStudents': 'goAllStudents'
         },
 
         showProfile: function(id){
@@ -79,6 +80,23 @@ $(document).ready(function() {
                     students.add(response);
                     console.log(students);
                     $searchForm.hide('fast');
+                },
+                'json'
+            )
+        },
+        goAllStudents: function() {
+            console.log('clicking');
+            $.get(
+                url + '/students',
+                function(response) {
+                    students.add(response);
+                    console.log(students);
+                    //$searchForm.hide('slow');
+                    $('#hpCards').hide();
+                    $('.heroImg').css('height', '10em');
+                    $('#createProfile').hide();
+                    $('#cohortSelect').css('display', 'none');
+                    $('#employed').css('display', 'none');
                 },
                 'json'
             )
@@ -135,21 +153,7 @@ $(document).ready(function() {
 
     $('#view-all').click(function(e) {
         e.preventDefault();
-        $.get(
-            url + '/students',
-            function(response) {
-                students.add(response);
-                console.log(students);
-                //$searchForm.hide('slow');
-                $('#hpCards').hide('fast');
-                $('.heroImg').css('height', '10em');
-                $('#createProfile').hide();
-                $('#cohortSelect').css('display', 'none');
-                $('#employed').css('display', 'none');
-            },
-            'json'
-        )
-        console.log(url+'/students');
+        alum.navigate('viewAllStudents',{trigger: true});
     })
 
     students.on('add', function(newProfile){
