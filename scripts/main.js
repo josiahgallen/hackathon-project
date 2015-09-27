@@ -46,14 +46,20 @@ $(document).ready(function() {
             $('#hpCards').hide('fast');
             $('select').css('display', 'block');
             $('#searchButton').css('display', 'block');
-            $('.heroImg').css('height', '10em');
+            $('.heroImg').css('height', '17em');
+             $('.heroImg').css('background', 'url("../images/student_profile.png")');
+            $('.heroImg').css('background-repeat', 'no-repeat');
+            $('.heroImg').css('background-size', 'cover');
         },
         goAdd: function(e) {
             $('#hpCards').hide('fast');
             $('#createProfile').show();
             $('#cohortSelect').css('display', 'block');
             $('#employed').css('display', 'block');
-            $('.heroImg').css('height', '10em');
+            $('.heroImg').css('height', '17em');
+            $('.heroImg').css('background', 'url("../images/student_profile.png")');
+            $('.heroImg').css('background-repeat', 'no-repeat');
+            $('.heroImg').css('background-size', 'cover');
             $('#createPbutton').css('display', 'block');
             $('.heroTxt').text('Create Your Profile');
             
