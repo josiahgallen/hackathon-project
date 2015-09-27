@@ -3,7 +3,7 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 var _ = require ('backbone/node_modules/underscore');
 var StudentModel = require('../models/StudentModel.js');
-
+var heroTxt = $('#heroTxt');
 module.exports = Backbone.View.extend({
 	tag: 'div',
 	initialize: function(options) {
@@ -15,7 +15,7 @@ module.exports = Backbone.View.extend({
 		this.model = new StudentModel({id: options.id});
 		this.model.on('sync',this.render);
 		this.model.fetch();
-		// this.render();
+		
 	},
 	render: function() {
 		var profileTemplate = _.template($('#profile-view').html());

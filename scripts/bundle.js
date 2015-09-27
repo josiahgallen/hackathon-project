@@ -12709,6 +12709,7 @@ $(document).ready(function () {
             $profile.show();
             $searchForm.hide();
             $('#hpCards').hide();
+            $('.heroTxt').text('');
             $('.heroImg').css('height', '10em');
             $('#view-all').hide();
         },
@@ -12864,7 +12865,7 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 var _ = require('backbone/node_modules/underscore');
 var StudentModel = require('../models/StudentModel.js');
-
+var heroTxt = $('#heroTxt');
 module.exports = Backbone.View.extend({
 	tag: 'div',
 	initialize: function initialize(options) {
@@ -12873,7 +12874,6 @@ module.exports = Backbone.View.extend({
 		this.model = new StudentModel({ id: options.id });
 		this.model.on('sync', this.render);
 		this.model.fetch();
-		// this.render();
 	},
 	render: function render() {
 		var profileTemplate = _.template($('#profile-view').html());
