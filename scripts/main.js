@@ -50,7 +50,8 @@ $(document).ready(function() {
             $searchForm.show();
         },
         goSearchForm: function(e) {
-            $('#hpCards').hide('fast');
+            $('#hpCards').hide();
+            $searchForm.show();
             $('select').css('display', 'block');
             $('#searchButton').css('display', 'block');
             $('.heroImg').css('height', '17em');
@@ -59,7 +60,7 @@ $(document).ready(function() {
             $('.heroImg').css('background-size', 'cover');
         },
         goAdd: function(e) {
-            $('#hpCards').hide('fast');
+            $('#hpCards').hide();
             $('#createProfile').show();
             $('#cohortSelect').css('display', 'block');
             $('#employed').css('display', 'block');
@@ -69,6 +70,7 @@ $(document).ready(function() {
             $('.heroImg').css('background-size', 'cover');
             $('#createPbutton').css('display', 'block');
             $('.heroTxt').text('Create Your Profile');
+            $(window).scrollTop(0);
         },
         searchResults: function(location, course) {
             console.log(location, course);
