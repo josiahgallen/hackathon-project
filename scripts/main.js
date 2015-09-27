@@ -89,8 +89,7 @@ $(document).ready(function() {
         if ($('#employed').val() === 'true') {
             employed = true;
         }
-        var newProfile = new StudentModel();
-        newProfile.save({
+        var newProfile = new StudentModel({
             f_name: $('#f_name').val(),
             l_name: $('#l_name').val(),
             email: $('#email').val(),
@@ -101,6 +100,12 @@ $(document).ready(function() {
             cohort_id: $('#cohortSelect').val(),
             location_id: where
         });
+        console.log(newProfile.attributes);
+        $.post(url+'/students',newProfile.attributes).done(function(res){
+            console.log('ran and got back', res);
+            students.add(res);
+        });
+
         console.log(newProfile);
     })
 
