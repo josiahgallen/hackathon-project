@@ -37,7 +37,10 @@ $(document).ready(function() {
             $searchForm.hide();
             $('#hpCards').hide();
             $('.heroTxt').text('');
-            $('.heroImg').css('height', '10em');
+            $('.heroImg').css('height', '20em');
+            $('.heroImg').css('background', 'url("../images/employers-img.png")');
+            $('.heroImg').css('background-repeat', 'no-repeat');
+            $('.heroImg').css('background-size', 'cover');
             $('#view-all').hide();
         },
         goHome: function(e) {

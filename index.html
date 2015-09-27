@@ -23,7 +23,6 @@
   </div>
  	<!--  homepage -->
  	<div class="heroImg">
- 		    <!-- <img class="responsive-img" src="images/home-hero-new.jpg"> -->
  		    <h3 class="heroTxt"> Connecting Employers to Alumni </h3>
  	</div>
  	<div class="row" id="hpCards">
@@ -148,24 +147,19 @@
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                <h5 class="white-text">The Iron Yard Alumni</h5>
+              
+              <ul>
+                  <li><a class="grey-text text-lighten-3" href="http://theironyard.com/courses/" target="_blank">Courses</a></li>
+                  <li><a class="grey-text text-lighten-3" href="http://theironyard.com/locations" target="_blank">Locations</a></li>
+                  <li><a class="grey-text text-lighten-3" href="http://theironyard.com/stories" target="_blank">Stories</a></li>
                 </ul>
-              </div>
+             </div>
             </div>
           </div>
           <div class="footer-copyright">
             <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            © 2015 A Josiah Mike Leslie Joint
             </div>
           </div>
         </footer>
@@ -183,18 +177,37 @@
     </script>
     <script type="text/template" id="profile-view">
     	<h3 class="heroTxt why">
-        <%= f_name %>
-        <%= l_name %>
+	        <%= f_name %>
+	        <%= l_name %>
+	        <br/>
+	        <img class="circle responsive-img" id="profileImg" src="images/empty_profile.png">
         </h3>
-        <%= email %>
-        </br>
-        <%= bio %>
-        </br>
-        <%= linked_in %>
-        </br>
-        <%= github %>
-        </br>
-    </script>
+        <div class="container">
+        	<div class=" about">
+			  <h5>let me introduce myself</h5>
+			 </div>
+		  <hr>
+  		<div class="row">
+    	<div class="col s12 m6 l6">
+      		<h6>Story</h6>
+      		<p><%= bio %></p>
+    	</div>
+    	<div class="col s12 m6 l6">
+      		<h6>Contact</h6>
+      	<div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <p>If you are interested in contacting me, please use the email below or check out my Linked In and Git Hub links</p>
+          <%= email %>
+        </div>
+        <div class="card-action">
+          <a href="#"><%= linked_in %></a>
+          <a href='#'><%= github %></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</script>
 
 </body>
 
