@@ -12708,6 +12708,7 @@ $(document).ready(function () {
             $studentList.hide();
             $profile.show();
             $searchForm.hide();
+            $('#hpCards').hide();
         },
         goHome: function goHome(e) {
             $profile.hide();
@@ -12757,7 +12758,7 @@ $(document).ready(function () {
             employed = true;
         }
         var newProfile = new StudentModel();
-        newProfile.saver({
+        newProfile.save({
             f_name: $('#f_name').val(),
             l_name: $('#l_name').val(),
             email: $('#email').val(),
@@ -12767,7 +12768,6 @@ $(document).ready(function () {
             employed: employed,
             cohort_id: $('#cohortSelect').val(),
             location_id: where
-
         });
         console.log(newProfile);
     });
