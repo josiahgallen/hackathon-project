@@ -12699,7 +12699,8 @@ $(document).ready(function () {
             'students/:id': 'showProfile',
             '': 'goHome',
             'searchStudents': 'goSearchForm',
-            'addProfile': 'goAdd'
+            'addProfile': 'goAdd',
+            'searchStudents/:location/:course': 'searchResults'
         },
 
         showProfile: function showProfile(id) {
@@ -12740,19 +12741,27 @@ $(document).ready(function () {
             $('.heroImg').css('background-size', 'cover');
             $('#createPbutton').css('display', 'block');
             $('.heroTxt').text('Create Your Profile');
+        },
+        searchResults: function searchResults(location, course) {
+            console.log(location, course);
+            $('#hpCards').hide();
+            //console.log(url + '/' + location + '/' + course);
+            $.get(url + '/' + location + '/' + course, function (response) {
+                students.add(response);
+                console.log(students);
+                $searchForm.hide('fast');
+            }, 'json');
         }
     });
+
+    var alum = new Router();
+    Backbone.history.start();
 
     $searchForm.submit(function (e) {
         e.preventDefault();
         var location = $locationSearch.val();
         var course = $courseSearch.val();
-        console.log(url + '/' + location + '/' + course);
-        $.get(url + '/' + location + '/' + course, function (response) {
-            students.add(response);
-            console.log(students);
-            $searchForm.hide('fast');
-        }, 'json');
+        alum.navigate('searchStudents/' + location + '/' + course, { trigger: true });
     });
 
     $createProfile.submit(function (e) {
@@ -12811,8 +12820,6 @@ $(document).ready(function () {
         var listView = new listItemView({ model: newProfile });
         $studentList.append(listView.$el);
     });
-    var alum = new Router();
-    Backbone.history.start();
 });
 
 },{"./collections/StudentCollection.js":4,"./models/StudentModel.js":6,"./views/listItemView.js":7,"./views/profileView.js":8,"backbone":1,"backbone/node_modules/underscore":2,"jquery":3}],6:[function(require,module,exports){

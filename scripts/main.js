@@ -26,7 +26,8 @@ $(document).ready(function() {
             'students/:id' : 'showProfile',
             '' : 'goHome',
             'searchStudents': 'goSearchForm',
-            'addProfile': 'goAdd'
+            'addProfile': 'goAdd',
+            'searchStudents/:location/:course': 'searchResults'
         },
 
         showProfile: function(id){
@@ -67,24 +68,31 @@ $(document).ready(function() {
             $('.heroImg').css('background-size', 'cover');
             $('#createPbutton').css('display', 'block');
             $('.heroTxt').text('Create Your Profile');
-            
+        },
+        searchResults: function(location, course) {
+            console.log(location, course);
+            $('#hpCards').hide();
+            //console.log(url + '/' + location + '/' + course);
+            $.get(
+                url + '/' + location + '/' + course,
+                function(response) {
+                    students.add(response);
+                    console.log(students);
+                    $searchForm.hide('fast');
+                },
+                'json'
+            )
         }
     })
+
+    var alum = new Router();
+    Backbone.history.start();
 
     $searchForm.submit(function(e) {
         e.preventDefault();
         var location = $locationSearch.val();
         var course = $courseSearch.val();
-        console.log(url + '/' + location + '/' + course);
-        $.get(
-            url + '/' + location + '/' + course,
-            function(response) {
-                students.add(response);
-                console.log(students);
-                $searchForm.hide('fast');
-            },
-            'json'
-        )
+        alum.navigate('searchStudents/' + location + '/' + course, {trigger: true});
     })
 
     $createProfile.submit(function(e) {
@@ -148,7 +156,4 @@ $(document).ready(function() {
         $studentList.append(listView.$el);
 
     })
-    var alum = new Router();
-    Backbone.history.start();
-
 });
