@@ -36,6 +36,7 @@ $(document).ready(function() {
             $profile.show();
             $searchForm.hide();
             $('#hpCards').hide();
+            $('.heroTxt').text('');
             $('.heroImg').css('height', '10em');
             $('#view-all').hide();
         },
