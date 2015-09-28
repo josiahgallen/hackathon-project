@@ -12717,6 +12717,7 @@ $(document).ready(function () {
             $('.heroImg').css('background-repeat', 'no-repeat');
             $('.heroImg').css('background-size', 'cover');
             $('#view-all').hide();
+            $(window).scrollTop(0);
         },
         goHome: function goHome(e) {
             $profile.hide();
@@ -12731,6 +12732,7 @@ $(document).ready(function () {
             $('.heroImg').css('background', 'url("../images/student_profile.png")');
             $('.heroImg').css('background-repeat', 'no-repeat');
             $('.heroImg').css('background-size', 'cover');
+            $(window).scrollTop(0);
         },
         goAdd: function goAdd(e) {
             $('#hpCards').hide();
